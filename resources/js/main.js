@@ -49,7 +49,7 @@ function renderTodoList () {
         var value = data.completed[j];
         addItemToHTML(value, true);
     }
-    
+
 }
 
 function dataObjectUpdated() {
@@ -90,7 +90,7 @@ function completeItem() {
     }
     else {
         // Remove item from completed data array and add to the todo data array
-        data.completed.splice(data.comleted.indexOf(value), 1);
+        data.completed.splice(data.completed.indexOf(value), 1);
         data.todo.push(value);
     }
     dataObjectUpdated();
@@ -105,7 +105,7 @@ function completeItem() {
 
 // Adds a new item to the todo list
 function addItemToHTML(text, completed) {
-    // Check if the item being sent to us is supposed to be added to the todo list or the completed list. 
+    // Check if the item being sent to us is supposed to be added to the todo list or the completed list.
     var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
     var item = document.createElement('li');
@@ -136,5 +136,3 @@ function addItemToHTML(text, completed) {
 
     list.insertBefore(item, list.childNodes[0]);
 }
-
-
