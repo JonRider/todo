@@ -13,7 +13,6 @@ renderTodoList();
 // Notifications again!!
 Push.create("Get Shit Done!", {
     body: "Did you do it?",
-    icon: 'resources/list.png',
     timeout: 4000,
     onClick: function () {
         window.focus();
