@@ -20,6 +20,16 @@ Push.create("Get Shit Done!", {
     }
 });
 
+// second notification
+navigator.serviceWorker.register('serviceWorker.js');
+Notification.requestPermission(function(result) {
+  if (result === 'granted') {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Notification with ServiceWorker');
+    });
+  }
+});
+
 // User clicked on the add button
 // If there was any text in the item field, add that text to the todo list
 document.getElementById('add').addEventListener('click', function() {
