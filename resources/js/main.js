@@ -10,22 +10,15 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 
 renderTodoList();
 
-// Notification Request
-Notification.requestPermission(function(status) {
-    console.log('Notification permission status:', status);
+// Notifications again!!
+Push.create("Get Shit Done!", {
+    body: "Did you do it?",
+    timeout: 4000,
+    onClick: function () {
+        window.focus();
+        this.close();
+    }
 });
-
-// Display our notification
-function displayNotification() {
-  if (Notification.permission == 'granted') {
-    navigator.serviceWorker.getRegistration().then(function(reg) {
-      reg.showNotification('Remember to get shit done!');
-    });
-  }
-}
-
-// Call to display our notification
-displayNotification();
 
 // User clicked on the add button
 // If there was any text in the item field, add that text to the todo list
