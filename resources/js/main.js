@@ -10,24 +10,15 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 
 renderTodoList();
 
-// Notifications again!!
+// Push Notification
 Push.create("Get Shit Done!", {
     body: "Did you do it?",
+    icon: 'resources/list.png',
     timeout: 4000,
     onClick: function () {
         window.focus();
         this.close();
     }
-});
-
-// second notification
-navigator.serviceWorker.register('serviceWorker.js');
-Notification.requestPermission(function(result) {
-  if (result === 'granted') {
-    navigator.serviceWorker.ready.then(function(registration) {
-      registration.showNotification('Notification with ServiceWorker');
-    });
-  }
 });
 
 // User clicked on the add button
