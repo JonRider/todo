@@ -24,7 +24,8 @@ function showNotification() {
   });
 }
 
-setInterval(showNotification(), 60000);
+setInterval(showNotification, 30000);
+
 
 
 
