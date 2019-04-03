@@ -11,29 +11,15 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 // Load TodoList from Data if any
 renderTodoList();
 
-// Get permission for notifications
-Notification.requestPermission(function(status) {
-    console.log('Notification permission status:', status);
-});
-
-function showNotification() {
-  // Push Notification
-  Push.create("Get Shit Done!", {
-      body: "Did you do it?",
-      icon: 'resources/list.png',
-      timeout: 4000,
-      onClick: function () {
-          window.focus();
-          this.close();
-      }
+Push.create("Get Shit Done!", {
+  body: "Did you do it?",
+  icon: 'resources/list.png',
+  timeout: 4000,
+  onClick: function () {
+    window.focus();
+    this.close();
+    }
   });
-}
-
-setInterval(showNotification, 30000);
-
-
-
-
 
 // User clicked on the add button
 // If there was any text in the item field, add that text to the todo list
