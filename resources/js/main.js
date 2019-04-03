@@ -11,6 +11,11 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 // Load TodoList from Data if any
 renderTodoList();
 
+// Get permission for notifications
+Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+});
+
 function showNotification() {
   // Push Notification
   Push.create("Get Shit Done!", {
