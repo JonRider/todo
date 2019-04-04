@@ -16,11 +16,12 @@ alarm = 9;
 // Notification Timer
 window.setInterval(function(){ // Set interval for checking
     var date = new Date(); // Create a Date object to find out what time it is
-    if(date.getHours() === alarm){ // Check the time
+    if(date.getHours() === alarm && date.getMinutes() === 0){ // Check the time
       Push.create("Get Shit Done!", {
         body: "Did you do it?",
         icon: 'resources/list.png',
-        timeout: 4000,
+        timeout: 10000,
+        vibrate: [200, 100],
         onClick: function () {
           window.focus();
           this.close();
