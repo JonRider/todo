@@ -38,6 +38,9 @@ document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
     if (value) {
         addItem(value);
+        // Play add audio
+        var audio = new Audio('resources/sounds/open-ended.mp3');
+        audio.play();
     }
 });
 
@@ -46,7 +49,10 @@ document.getElementById('item').addEventListener('keydown', function (e) {
     var value = this.value;
     if (e.code === 'Enter' && value) {
         addItem(value);
-    }
+        // Play add audio
+        var audio = new Audio('resources/sounds/open-ended.mp3');
+        audio.play();
+    }  
 });
 
 function addItem(value) {
@@ -96,6 +102,10 @@ function removeItem() {
     dataObjectUpdated();
 
     parent.removeChild(item);
+
+    // Play remove audio
+    const audio = new Audio('resources/sounds/case-closed.mp3');
+    audio.play();
 }
 
 // Complete the item in the todo list
@@ -123,6 +133,15 @@ function completeItem() {
     parent.removeChild(item);
     target.insertBefore(item, target.childNodes[0]);
 
+    // Play add or pull back audio
+    var audio;
+    if (id === 'todo'){
+      audio = new Audio('resources/sounds/open-ended.mp3');
+    }
+    else {
+      audio = new Audio('resources/sounds/pull-out.mp3');
+    }
+    audio.play();
 }
 
 // Adds a new item to the todo list
