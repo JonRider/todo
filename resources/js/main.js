@@ -11,15 +11,25 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 // Load TodoList from Data if any
 renderTodoList();
 
-Push.create("Get Shit Done!", {
-  body: "Did you do it?",
-  icon: 'resources/list.png',
-  timeout: 4000,
-  onClick: function () {
-    window.focus();
-    this.close();
+// time to set the reminder
+alarm = 9;
+// Notification Timer
+window.setInterval(function(){ // Set interval for checking
+    var date = new Date(); // Create a Date object to find out what time it is
+    if(date.getHours() === alarm){ // Check the time
+      Push.create("Get Shit Done!", {
+        body: "Did you do it?",
+        icon: 'resources/list.png',
+        timeout: 4000,
+        onClick: function () {
+          window.focus();
+          this.close();
+          }
+        });
     }
-  });
+}, 60000); // Repeat every 60000 milliseconds (1 minute)
+
+
 
 // User clicked on the add button
 // If there was any text in the item field, add that text to the todo list
